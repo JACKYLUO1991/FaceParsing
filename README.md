@@ -30,7 +30,7 @@
 3. **Boundary Branch** 
 4. **Boundary Loss**
 
-Thanks
+## Thanks
 '''
 @article{CelebAMask-HQ,
   title={MaskGAN: Towards Diverse and Interactive Facial Image Manipulation},
