@@ -31,11 +31,11 @@
 4. **Boundary Loss**
 
 ## Thanks
-'''
+```
 @article{CelebAMask-HQ,
   title={MaskGAN: Towards Diverse and Interactive Facial Image Manipulation},
   author={Lee, Cheng-Han and Liu, Ziwei and Wu, Lingyun and Luo, Ping},
   journal={arXiv preprint arXiv:1907.11922},
   year={2019}
 }
-'''
+```
