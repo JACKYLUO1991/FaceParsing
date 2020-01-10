@@ -29,8 +29,8 @@
 
 ## Visual Results
 <div><div align=center>
-  <img src="https://github.com/JACKYLUO1991/FaceParsing/blob/master/deployment/img_raw.jpg" width="150" height="150" alt="raw"/>
-<img src="https://github.com/JACKYLUO1991/FaceParsing/blob/master/deployment/img_pred.jpg" width="150" height="150" alt="pred"/>/</div>
+  <img src="https://github.com/JACKYLUO1991/FaceParsing/blob/master/deployment/img_raw.jpg" width="300" height="300" alt="raw"/>
+<img src="https://github.com/JACKYLUO1991/FaceParsing/blob/master/deployment/img_pred.png" width="300" height="300" alt="pred"/>/</div>
 
 1. **Hierarchical Global Attention Mechanism**
 2. **Semantic Gap Compensation Block**
