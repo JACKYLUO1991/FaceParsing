@@ -32,10 +32,11 @@
   <img src="https://github.com/JACKYLUO1991/FaceParsing/blob/master/deployment/img_raw.jpg" width="300" height="300" alt="raw"/>
 <img src="https://github.com/JACKYLUO1991/FaceParsing/blob/master/deployment/img_pred.png" width="300" height="300" alt="pred"/>/</div>
 
-1. **Hierarchical Global Attention Mechanism**
-2. **Semantic Gap Compensation Block**
-3. **Boundary Branch** 
-4. **Boundary Loss**
+## Highlight
+**Hierarchical Global Attention Mechanism**
+**Semantic Gap Compensation Block**
+**Boundary Branch** 
+**Boundary Loss**
 
 ## Thanks CelebAMask-HQ dataset
 ```
