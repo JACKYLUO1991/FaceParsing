@@ -24,6 +24,12 @@
 | **fps**    | 71.94  | 79.37 | 12.85     | **99.01** | 29.76     | 52.08     |
 
 
+## Visual Results
+<figure class="half">
+    <img src="https://github.com/JACKYLUO1991/FaceParsing/blob/master/deployment/img_raw.jpg">
+    <img src="https://github.com/JACKYLUO1991/FaceParsing/blob/master/deployment/img_pred.jpg">
+</figure>
+
 
 1. **Hierarchical Global Attention Mechanism**
 2. **Semantic Gap Compensation Block**
