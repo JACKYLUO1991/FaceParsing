@@ -1,5 +1,6 @@
 # EHANet: An effective hierarchical aggregation network for face parsing
 
+## Performance
 | Category   | DFANet | UNet  | DANet     | DABNet    | CE2P      | ParseNet  |
 | ---------- | ------ | ----- | --------- | --------- | --------- | --------- |
 | Background | 88.12  | 89.36 | **93.04** | 90.36     | 92.78     | 92.61     |
@@ -27,8 +28,8 @@
 
 
 ## Visual Results
-![raw](https://github.com/JACKYLUO1991/FaceParsing/blob/master/deployment/img_raw.jpg)
-![pred](https://github.com/JACKYLUO1991/FaceParsing/blob/master/deployment/img_pred.jpg)
+![raw](https://github.com/JACKYLUO1991/FaceParsing/blob/master/deployment/img_raw.jpg=400px)
+![pred](https://github.com/JACKYLUO1991/FaceParsing/blob/master/deployment/img_pred.jpg=400px)
 
 1. **Hierarchical Global Attention Mechanism**
 2. **Semantic Gap Compensation Block**
