@@ -124,7 +124,6 @@ class CriterionAll(nn.Module):
                 scale_pred = F.interpolate(input=pred_parsing, size=(h, w),
                                            mode='bilinear', align_corners=True)
 
-                # A High-Efficiency Framework for Constructing Large-Scale Face Parsing Benchmark
                 if idx == len(preds_parsing) - 1:  # Is that the last term ?
                     loss += (torch.mul(self.weighted_criterion(scale_pred, target[0]), torch.where(
                         target[1] == 0, torch.Tensor([1]).cuda(), torch.Tensor([1 + self.alpha]).cuda()))).mean()
