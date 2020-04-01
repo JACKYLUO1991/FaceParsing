@@ -1,7 +1,7 @@
 # EHANet: An effective hierarchical aggregation network for face parsing
 
 ## Performance Compare
-| Category   | DFANet | UNet  | DANet     | DABNet    | CE2P      | EHANet- ResNet34 |
+| Category   | DFANet | UNet  | DANet     | DABNet    | CE2P      | EHANet-R34 |
 | ---------- | ------ | ----- | --------- | --------- | --------- | ---------------- |
 | Background | 88.12  | 89.36 | **93.04** | 90.36     | 92.78     | 92.98            |
 | Skin       | 89.69  | 91.90 | 93.15     | 91.27     | 93.17     | **93.26**        |
