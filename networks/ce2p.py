@@ -7,16 +7,10 @@
 import torch.nn as nn
 from torch.nn import functional as F
 import torch
-# import torch.utils.model_zoo as model_zoo
 
-from inplace_abn import InPlaceABN
+from inplace_abn import InPlaceABN  # replace is ok!
 import functools
 BatchNorm2d = functools.partial(InPlaceABN, activation='identity')
-
-# model_urls = {
-#     'resnet101': 'https://pan.baidu.com/s/1NoxI_JetjSVa7uqgVSKdPw#list/path=%2FCE2P/resnet101-imagenet.pth',
-# }
-
 
 def conv3x3(in_planes, out_planes, stride=1):
     "3x3 convolution with padding"

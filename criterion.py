@@ -91,7 +91,7 @@ class DiceLoss(nn.Module):
 class CriterionAll(nn.Module):
     """Segmentation aware and Edge aware loss."""
 
-    def __init__(self, alpha=20, ignore_index=255):
+    def __init__(self, alpha=50, ignore_index=255):
         super(CriterionAll, self).__init__()
         self.ignore_index = ignore_index
         self.criterion = nn.CrossEntropyLoss(ignore_index=ignore_index)

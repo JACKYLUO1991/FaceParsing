@@ -31,6 +31,7 @@ from metrics import SegMetric
 
 
 class Tester(object):
+
     def __init__(self, data_loader, config):
 
         # Data loader
@@ -41,11 +42,10 @@ class Tester(object):
         self.parallel = config.parallel
         self.classes = config.classes
         self.pretrained_model = config.pretrained_model  # int type
-        self.arch = config.arch
 
         self.model_save_path = config.model_save_path
         self.arch = config.arch
-        self.test_size = config.test_size
+        # self.test_size = config.test_size
 
         self.build_model()
 
@@ -75,12 +75,11 @@ class Tester(object):
 
             with torch.no_grad():
                 outputs = self.G(images)
-
                 # Whether or not multi branch?
-                if self.arch == 'CE2P' or self.arch == 'FaceParseNet101':
+                if self.arch == 'CE2P' or 'FaceParseNet' in self.arch:
                     outputs = outputs[0][-1]
-                outputs = F.interpolate(outputs, (h, w), mode='bilinear', align_corners=True)
 
+                outputs = F.interpolate(outputs, (h, w), mode='bilinear', align_corners=True)
                 pred = outputs.data.max(1)[1].cpu().numpy()  # Matrix index
                 gt = labels.cpu().numpy()
                 # elapsed_time = timeit.default_timer() - start_time
@@ -100,13 +99,16 @@ class Tester(object):
         print("Inference Time: {:.4f}s".format(
             time_meter.average() / images.size(0)))
 
-        score, class_iou = metrics.get_scores()
+        score = metrics.get_scores()[0]
+        class_iou = metrics.get_scores()[1]
 
         for k, v in score.items():
             print(k, v)
 
-        facial_names = ['background', 'skin', 'nose', 'eyeglass', 'left_eye', 'right_eye', 'left_brow', 'right_brow', 'left_ear',
-                        'right_ear', 'mouth', 'upper_lip', 'lower_lip', 'hair', 'hat', 'earring', 'necklace', 'neck', 'cloth']
+        facial_names = ['background', 'skin', 'nose', 'eyeglass', 'left_eye', 'right_eye', 'left_brow', 'right_brow',
+                        'left_ear',
+                        'right_ear', 'mouth', 'upper_lip', 'lower_lip', 'hair', 'hat', 'earring', 'necklace', 'neck',
+                        'cloth']
         for i in range(self.classes):
             print(facial_names[i] + "\t: {}".format(str(class_iou[i])))
 

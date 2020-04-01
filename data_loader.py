@@ -20,7 +20,7 @@ class CelebAMaskHQ(Dataset):
         self.resize = resize
         self.preprocess()
 
-        if mode == True:
+        if mode:
             self.num_images = len(self.train_dataset)
         else:
             self.num_images = len(self.test_dataset)
@@ -30,7 +30,7 @@ class CelebAMaskHQ(Dataset):
             img_path = osp.join(self.img_path, str(i)+'.jpg')
             label_path = osp.join(self.label_path, str(i)+'.png')
 
-            if self.mode == True:
+            if self.mode:
                 self.train_dataset.append([img_path, label_path])
             else:
                 self.test_dataset.append([img_path, label_path])
@@ -47,7 +47,7 @@ class CelebAMaskHQ(Dataset):
         image, label = Compose(
             [FreeScale(self.resize)])(image, label)
 
-        if self.mode == True:
+        if self.mode:
             if self.trainsform is not None:
                 image, label = self.trainsform(image, label)
 

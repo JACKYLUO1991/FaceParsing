@@ -10,7 +10,8 @@ def get_parameters():
 
     parser.add_argument('--imsize', type=int, default=512)
     parser.add_argument(
-        '--arch', type=str, choices=['UNet', 'DFANet', 'DANet', 'DABNet', 'CE2P', 'FaceParseNet101'], required=True)
+        '--arch', type=str, choices=['UNet', 'DFANet', 'DANet', 'DABNet', 'CE2P', 'FaceParseNet18',
+                                     'FaceParseNet34', "FaceParseNet50", "FaceParseNet101", "EHANet18"], required=True)
 
     # Training setting
     parser.add_argument('--epochs', type=int, default=200,
@@ -24,7 +25,8 @@ def get_parameters():
     parser.add_argument('--classes', type=int, default=19)
 
     # Testing setting
-    parser.add_argument('--test_size', type=int, default=2824)
+    # parser.add_argument('--test_size', type=int, default=2824)
+    # parser.add_argument('--val_size', type=int, default=2993)
     parser.add_argument('--model_name', type=str, default='model.pth')
 
     # Misc
@@ -38,6 +40,10 @@ def get_parameters():
                         default='./Data_preprocessing/train_label')
     parser.add_argument('--model_save_path', type=str, default='./models')
     parser.add_argument('--sample_path', type=str, default='./samples')
+    parser.add_argument('--val_img_path', type=str,
+                        default='./Data_preprocessing/val_img')
+    parser.add_argument('--val_label_path', type=str,
+                        default='./Data_preprocessing/val_label')
     parser.add_argument('--test_image_path', type=str,
                         default='./Data_preprocessing/test_img')
     parser.add_argument('--test_label_path', type=str,

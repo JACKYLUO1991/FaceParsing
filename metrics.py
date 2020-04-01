@@ -19,7 +19,8 @@ class SegMetric(object):
                 lt.flatten(), lp.flatten(), self.n_classes)
 
     def get_scores(self):
-        """Returns accuracy score evaluation result.
+        """
+        Returns accuracy score evaluation result.
             - overall accuracy
             - mean accuracy
             - mean IU

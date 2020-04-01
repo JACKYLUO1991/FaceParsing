@@ -2,7 +2,7 @@
 # @Author: luoling
 # @Date:   2019-12-02 11:19:20
 # @Last Modified by:   luoling
-# @Last Modified time: 2019-12-23 19:07:06
+# @Last Modified time: 2020-02-25 21:06:12
 
 import torch
 import torch.nn as nn
@@ -53,7 +53,9 @@ def check_keys(model, pretrained_state_dict):
 def remove_prefix(state_dict, prefix):
     ''' Old style model is stored with all names of parameters sharing common prefix 'module.' '''
     print('remove prefix \'{}\''.format(prefix))
+
     def f(x): return x.split(prefix, 1)[-1] if x.startswith(prefix) else x
+
     return {f(key): value for key, value in state_dict.items()}
 
 
@@ -83,9 +85,11 @@ def rot90(v):
 
 def vis_parsing_maps(im, parsing_anno, color=[230, 50, 20]):
     # Colors for all 20 parts
-    part_colors = [[0, 0, 0], [204, 0, 0], [76, 153, 0], [204, 204, 0], [51, 51, 255], [204, 0, 204], [0, 255, 255], [255, 204, 204], [102, 51, 0], [
-        255, 0, 0], [102, 204, 0], [255, 255, 0], [0, 0, 153], [0, 0, 204], [255, 51, 153], [0, 204, 204], [0, 51, 0], [255, 153, 51], [0, 204, 0]]
-    
+    part_colors = [[0, 0, 0], [204, 0, 0], [76, 153, 0], [204, 204, 0], [51, 51, 255], [204, 0, 204], [0, 255, 255],
+                   [255, 204, 204], [102, 51, 0], [
+                       255, 0, 0], [102, 204, 0], [255, 255, 0], [0, 0, 153], [0, 0, 204], [255, 51, 153],
+                   [0, 204, 204], [0, 51, 0], [255, 153, 51], [0, 204, 0]]
+
     im = np.array(im)
     vis_im = im.copy().astype(np.uint8)
     vis_parsing_anno_color = np.zeros(
@@ -158,9 +162,10 @@ def vis_parsing_maps(im, parsing_anno, color=[230, 50, 20]):
     return vis_im
 
 
-# celebahq = [0, 0, 0, 204, 0, 0, 76, 153, 0, 204, 204, 0, 51, 51, 255, 204, 0, 204, 0, 255, 255, 255, 204, 204, 102, 51, 0,
-#             255, 0, 0, 102, 204, 0, 255, 255, 0, 0, 0, 153, 0, 0, 204, 255, 51, 153, 0, 204, 204, 0, 51, 0, 255, 153, 51, 0, 204, 0]
-
+celebahq = [0, 0, 0, 204, 0, 0, 76, 153, 0, 204, 204, 0, 51, 51, 255, 204, 0, 204, 0, 255, 255, 255, 204, 204, 102, 51,
+            0,
+            255, 0, 0, 102, 204, 0, 255, 255, 0, 0, 0, 153, 0, 0, 204, 255, 51, 153, 0, 204, 204, 0, 51, 0, 255, 153,
+            51, 0, 204, 0]
 
 if __name__ == '__main__':
 
@@ -336,7 +341,8 @@ if __name__ == '__main__':
         pad = (int(np.floor(min(quad[:, 0]))), int(np.floor(min(quad[:, 1]))), int(
             np.ceil(max(quad[:, 0]))), int(np.ceil(max(quad[:, 1]))))
         pad = (max(-pad[0] + border, 0), max(-pad[1] + border, 0), max(pad[2] -
-                                                                       img.size[0] + border, 0), max(pad[3] - img.size[1] + border, 0))
+                                                                       img.size[0] + border, 0),
+               max(pad[3] - img.size[1] + border, 0))
         if max(pad) > border - 4:
             pad = np.maximum(pad, int(np.round(1024 * 0.3 / zoom)))
             img = np.pad(np.float32(
@@ -344,14 +350,14 @@ if __name__ == '__main__':
             h, w, _ = img.shape
             y, x, _ = np.mgrid[:h, :w, :1]
             mask = 1.0 - np.minimum(np.minimum(np.float32(x) / pad[0], np.float32(
-                y) / pad[1]), np.minimum(np.float32(w-1-x) / pad[2], np.float32(h-1-y) / pad[3]))
+                y) / pad[1]), np.minimum(np.float32(w - 1 - x) / pad[2], np.float32(h - 1 - y) / pad[3]))
             blur = 1024 * 0.02 / zoom
             # TODO: 时间很长的bug!!!
             tic = time.time()
             img += (gaussian_filter(img, [blur, blur, 0]) - img) * np.clip(mask * 3.0 + 1.0, 0.0, 1.0)
             print(time.time() - tic)
             img += (np.median(img, axis=(0, 1)) - img) * \
-                np.clip(mask, 0.0, 1.0)
+                   np.clip(mask, 0.0, 1.0)
             img = Image.fromarray(
                 np.uint8(np.clip(np.round(img), 0, 255)), 'RGB')
             quad += pad[0:2]
@@ -380,10 +386,10 @@ if __name__ == '__main__':
                 output, (512, 512), mode='bilinear', align_corners=True)
             parsing = np.squeeze(output.data.max(1)[1].cpu().numpy(), axis=0)
 
-            # out_img = Image.fromarray(parsing.astype(np.uint8))
-            # out_img.putpalette(celebahq)
+            out_img = Image.fromarray(parsing.astype(np.uint8))
+            out_img.putpalette(celebahq)
             # # out_img.show()
-            # out_img.save("img_pred.png")
-            fusing = vis_parsing_maps(img, parsing)
-            fusing.save("img_pred.png")
+            out_img.save("img_pred.png")
+            # fusing = vis_parsing_maps(img, parsing)
+            # fusing.save("img_pred.png")
             # cv.imwrite("img_pred.png", fusing)
