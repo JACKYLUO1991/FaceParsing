@@ -29,8 +29,8 @@
 
 ## Visual Results
 <div><div align=center>
-  <img src="https://github.com/JACKYLUO1991/FaceParsing/blob/master/deployment/img_raw.jpg" width="300" height="300" alt="raw"/>
-<img src="https://github.com/JACKYLUO1991/FaceParsing/blob/master/deployment/img_pred.png" width="300" height="300" alt="pred"/></div>
+  <img src="https://github.com/JACKYLUO1991/FaceParsing/tree/master/deployment/result/images/228.jpg" width="300" height="300" alt="raw"/>
+<img src="https://github.com/JACKYLUO1991/FaceParsing/blob/master/deployment/result/renders/2.png" width="300" height="300" alt="pred"/></div>
 
 ## Highlight
 1. Hierarchical Global Attention Mechanism
