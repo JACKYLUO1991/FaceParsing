@@ -20,7 +20,7 @@ import argparse
 from segmentation.parsenet18 import FaceParseNet34
 from segmentation.parsenet50 import FaceParseNet50
 from segmentation.dfanet import DFANet
-# from segmentation.ce2p import CE2P
+from segmentation.ce2p import CE2P
 from segmentation.dabnet import DABNet
 from segmentation.unet import UNet
 from segmentation.danet import DANet
