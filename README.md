@@ -16,4 +16,14 @@ In recent years, benefiting from deep convolutional neural networks (DCNNs), fac
   journal={arXiv preprint arXiv:1907.11922},
   year={2019}
 }
+@article{luo2020ehanet,
+  title={EHANet: An Effective Hierarchical Aggregation Network for Face Parsing},
+  author={Luo, Ling and Xue, Dingyu and Feng, Xinglong},
+  journal={Applied Sciences},
+  volume={10},
+  number={9},
+  pages={3135},
+  year={2020},
+  publisher={Multidisciplinary Digital Publishing Institute}
+}
 ```
