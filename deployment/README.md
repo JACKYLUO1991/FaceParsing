@@ -7,4 +7,8 @@
 2. If you want to apply it to your business, please refer to the following guidelines:  
 (1) choose a face detector, maybe MTCNN, RetinaFace, so on..  
 (2) refer to the paper "Progressive Growing of GANs for Improved Quality, Stability, and Variation" in order to adjust the face  
-(3) use our segmentation model to parse human faces  
+(3) use our segmentation model to parse human faces 
+
+3. 
+RetinaFace url: https://pan.baidu.com/s/14MzwqOBxY2tciC5V8MXW2w 
+password: a9ty
