@@ -9,6 +9,5 @@
 (2) refer to the paper "Progressive Growing of GANs for Improved Quality, Stability, and Variation" in order to adjust the face  
 (3) use our segmentation model to parse human faces 
 
-3. 
-RetinaFace url: https://pan.baidu.com/s/14MzwqOBxY2tciC5V8MXW2w 
-password: a9ty
+3. RetinaFace url: https://pan.baidu.com/s/14MzwqOBxY2tciC5V8MXW2w 
+   password: a9ty
